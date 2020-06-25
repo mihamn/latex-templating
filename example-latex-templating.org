@@ -20,19 +20,17 @@
 #+LATEX_HEADER: \pagenumbering{gobble}
 
 
-
-
 #+MACRO: propertyreference 
 #+MACRO: paymentreference 
 #+MACRO: salutation Dear Mr x
 #+MACRO: subject 
 #+MACRO: today (eval (format-time-string "%d %B %Y"))
-#+MACRO: getletterbody (eval (call_LetterBody))
+
 
 
 
 #+NAME: LetterBody 
-#+BEGIN_SRC emacs-lisp :results silent
+#+BEGIN_SRC emacs-lisp :results silent :exports none
   (car '("Thank you for your communication of [x] date.  We have
   looked into the circumstances behind this situation and concluded
   that there is room for process improvement. Accordingly, we have
@@ -41,6 +39,8 @@
 #+END_SRC
 
 \begin{vplace}
+
+\begin{minipage}{10cm}
 
 Mr x \\
 First Line \\
@@ -51,8 +51,8 @@ Reference:   \\
 \\
 {{{subject}}}
 \\
-<<<LetterBody>>>
 
+	
 call_LetterBody()
 
 #+CALL: LetterBody()
@@ -61,6 +61,7 @@ Yours sincerely,
 \\
 Our Organisation
 
+\end{minipage}
 
 \end{vplace}
 
